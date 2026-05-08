@@ -1,0 +1,21 @@
+
+NOME --- System Of List Elements -> SOLE, ou sola em pt/br. Da pra deixar SLE, mas... muito simples kkk 
+        System List Elements Languae
+
+AVISO -> O framework_base tem que ser instanciado primeiro que TUDO
+
+IDEIAS -> 1. Muito inspirado pelo DSD penso na ideia de adicionar uma linguagem separada, um quarto arquivo onde sera estruturado a ordem de prioridade de cada elemento. Um exemplo ->
+**
+#config[ordem:(+ ou -)][divisao:int]
+@Levantar -> [permisivel:false][core:true]
+@Procurar -> [permisivel:true][core:false]
+@Chutar -> [permisivel:false][core:false]
+**
+
+Quando mais a cima, maior o nivel da prioridade. O sistema entende um elemento pelo [(Nome do elemento) ->]. - significa que o elemento é permisivel, + que ele é um elemento CORE e caso tenha um =[Nome de um elemento], ambos vao ter a mesma prioridade, mesmo em posições diferentes da lista.
+Ainda tenho que refinar a ideia da linguagem, mas por enquanto vamos deixar assim.
+
+Ideias novas -> Linhas de configuração para definir algumas coisas, no inicio do arquivo (ou em qualquer lugar, apenas tem que ter) haverá um linha que se inicia com #config e afrente dela tera as config [config]. exemplo
+#config[ordem:(+ ou -)][divisao:int]
+-> Configurações pensadas ate agr, Ordem: +Cima pra baixo, -Baixo para cima, define a ordem com que irei rotular a ordem de cada elemento, divisao: A cada elemento pecorrido irei adicionar um valor iniciando de 0, esse valor é definido pelo numero após do divisao
+
