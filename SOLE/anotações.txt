@@ -1,4 +1,18 @@
 
+## ELEMENTO - Um elemento é o estado que vai executar uma função. Nele temos: Seu nome/ID, sua função a ser executada, Seu nivel de prioridade, suas condições e se ele é permicivel.
+
+## Todo elemento pode, ou não, ser adicionado a lista de comando caso suas condições sejam atendidas. Após o processo de avaliação de cada elemento a lista de comando deve estar completa. O elemento com maior prioridade é o que vai ser executado, e os outros são ignorados. Caso o elemento tenha seja permicivel ele vai congelar a lista de comando, ou seja, mesmo que outros elementos sejam adicionados a lista, o elemento congelante é o que vai ser executado. O elemento congelante só é descongelado quando suas condições não são mais atendidas ou quando um elemento CORE entra na lista - (Um elemento core é aquele com prioridade maior ou igual a 90)
+
+## LISTA DE COMANDO E AGENTE CENTRAL - A lista de comando é a lista onde os elementos são adicionados, e o agente central é o responsável por avaliar o nivel de prioridade de cada elemento e decidir qual elemento vai ser executado. O agente central deve ser capaz de indentificar quando um elemento é congelante e quando um elemento core entra na lista. Caso a lista de comando seja congelada por algum elemento, o agente central deve apenas confirmar as condições de algum elemento para entrar na lista caso ele seja um CORE, o oposto o angente central apenas o ignora. Caso um elemento CORE entre na lista, o agente central deve interromper o elemento em execução e retomar o processo de avaliação da lista de comando, ou seja, avaliar a lista de comando novamente para decidir qual elemento vai ser executado.
+
+
+## OBSERVAÇÔES -> ELEMENTO CORE, quando um elemento core estiver na lista nenhum elemento com permisividade true será adicionado. O agente central vai pegar os elemento de um arquivo externo (será necessario que uma lista seja criada para melhor entender os elemento? testar)
+
+## NOME: System of listed elements - SOLE ( sola em pt/br, sla kk sabato)
+
+
+-------------------------- Ideias e anotações [13:43 08/05/2026] --------------------------
+
 NOME --- System Of List Elements -> SOLE, ou sola em pt/br. Da pra deixar SLE, mas... muito simples kkk 
         System List Elements Languae
 
@@ -18,4 +32,3 @@ Ainda tenho que refinar a ideia da linguagem, mas por enquanto vamos deixar assi
 Ideias novas -> Linhas de configuração para definir algumas coisas, no inicio do arquivo (ou em qualquer lugar, apenas tem que ter) haverá um linha que se inicia com #config e afrente dela tera as config [config]. exemplo
 #config[ordem:(+ ou -)][divisao:int]
 -> Configurações pensadas ate agr, Ordem: +Cima pra baixo, -Baixo para cima, define a ordem com que irei rotular a ordem de cada elemento, divisao: A cada elemento pecorrido irei adicionar um valor iniciando de 0, esse valor é definido pelo numero após do divisao
-
