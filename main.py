@@ -66,10 +66,10 @@ class StateMachine:
             GETTING_UP = 100
             SEARCHING = 90
             STABILIZATION = 85
+            KICK_DONE = 80
             KICKING = 75
             ALIGNING = 65
             WALKING = 60
-            KICK_DONE = 50
             POST_GETTING_UP = 40
 
         #Adicionando a lista a condição de levantar
@@ -118,9 +118,9 @@ class StateMachine:
         if self._walking_condition:
             control_list.append(('walking', PRIORITY.WALKING))
 
-        #Caso tudo para o chute esteja pronto, adicione o chute a lista
-        if self._kick_done_condition:
-            control_list.append(('walking', PRIORITY.KICK_DONE))
+        # Quando o sinal de chute finalizado chegar, obriga a sair do estado de chute
+        if self._kick_done_condition and self.state == 'kicking':
+            control_list.append(('idle_march', PRIORITY.KICK_DONE))
 
         #Caso eu caia, adicone a condição de levantar a lista
         if self.state == 'getting_up' and not self._getting_up_condition:
