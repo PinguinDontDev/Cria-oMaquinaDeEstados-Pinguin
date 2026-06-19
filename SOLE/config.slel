@@ -1,0 +1,6 @@
+#config[ordem:+][espaco_de_prioridade:10]
+
+@Levantar -> [core:+][permissivo:-]
+@Procurar -> [core:-][permissivo:-]
+@Chutar -> [core:-][permissivo:+]
+@Win -> [prioridade:-199]
